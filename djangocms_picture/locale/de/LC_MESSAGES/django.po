@@ -196,6 +196,14 @@ msgstr ""
 "Überschreibt Breite, Höhe, Zuschneiden und Skalierung mit den gegebenen "
 "Voreinstellungen."
 
+#: models.py:177
+msgid "Rounded"
+msgstr "Abgerundet"
+
+#: models.py:177
+msgid "Adds the .rounded class for round corners."
+msgstr "Fügt die .rounded Klasse hinzu für abgerundete ecken."
+
 #: models.py:197
 msgid "<file is missing>"
 msgstr "<datei nicht vorhanden>"

@@ -173,6 +173,11 @@ class AbstractPicture(CMSPlugin):
         null=True,
         help_text=_('Overrides width, height, and crop; scales up to the provided preset dimensions.'),
     )
+    picture_rounded = models.BooleanField(
+        verbose_name=_('Rounded'),
+        default=False,
+        help_text=_('Adds the .rounded class for round corners.'),
+    )
 
     # Add an app namespace to related_name to avoid field name clashes
     # with any other plugins that have a field with the same name as the

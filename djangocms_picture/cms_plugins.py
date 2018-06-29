@@ -24,7 +24,7 @@ class PicturePlugin(CMSPluginBase):
         (None, {
             'fields': (
                 'picture',
-                'external_picture',
+                ('external_picture', 'picture_rounded'),
             )
         }),
         (_('Advanced settings'), {
@@ -59,12 +59,19 @@ class PicturePlugin(CMSPluginBase):
         return 'djangocms_picture/{}/picture.html'.format(instance.template)
 
     def render(self, context, instance, placeholder):
+        classes = ''
+
+        if instance.picture_rounded:
+            classes += 'rounded '
+
         if instance.alignment:
-            classes = 'align-{} '.format(instance.alignment)
+            classes += instance.alignment + ' '
             classes += instance.attributes.get('class', '')
             # Set the class attribute to include the alignment html class
             # This is done to leverage the attributes_str property
             instance.attributes['class'] = classes
+
+
         # assign link to a context variable to be performant
         context['picture_link'] = instance.get_link()
         context['picture_size'] = instance.get_size(
